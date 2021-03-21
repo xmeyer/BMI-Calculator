@@ -1,6 +1,6 @@
 def welcome():
     '''
-    Banner for design and organization in output.
+    Banner for design and organization in output, and the introduction to the user's first name.
     '''
     print('======================================================== \n           <<< Welcome to the Calculator>>> \n========================================================\n\n')
     fname = input("What is your first name? ").upper() 
