@@ -1,0 +1,53 @@
+def welcome():
+    '''
+    Banner for design and organization in output.
+    '''
+    print('======================================================== \n           <<< Welcome to the Calculator>>> \n========================================================\n\n')
+    fname = input("What is your first name? ").upper() 
+    welcome.fname = fname
+
+def BMIcomputer(weight, height):
+    '''
+    Calculates BMI (lbs and inches)
+    '''
+    bmi = round(703 * (weight/ (height**2)), 2)
+    BMIcomputer.bmi = bmi
+    return bmi
+
+def printResult(fname, bmi):
+    '''
+    Returns bmi with category and advice.
+    '''
+
+    print(welcome.fname + "'s BMI: " + str(BMIcomputer.bmi))
+    
+    ca = 'Category/ Advice: '
+    if bmi < 18.5:
+        print(ca + 'Underweight - please increase food intake')
+    elif 18.5 <= bmi < 25:
+        print(ca + 'Normal - no change')
+    elif 25 <= bmi < 30:
+        print(ca + 'Overweight - please increase activity levels')
+    else:
+        print(ca + 'Obese - please increase activity levels')
+    
+def main():
+    while True:
+        go = input('Continue (y/ n)? ')
+        if (go == 'y' or go == 'Y'):
+            welcome()
+            BMIcomputer(float(input("Enter your weight in pounds: ")),
+                   float(input("Enter your height in inches: ")))
+            printResult(welcome.fname, BMIcomputer.bmi)
+            
+        elif (go == 'n' or go == 'N'):
+            print('Thank you for using this program, ' + welcome.fname)
+            break
+        else:
+            print('*** Error, invalid input: ' + go 
+                   + '\n' + 'Stopping program.' 
+                   + '\n' + 'Thank you for using this program, ' + welcome.fname)
+            break
+    
+    
+main()
